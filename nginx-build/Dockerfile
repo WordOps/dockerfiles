@@ -2,7 +2,7 @@ FROM ubuntu:bionic
 
 LABEL maintainer="Thomas SUCHON <thomas@virtubox.net>"
 
-RUN apt-get update && apt-get install -qqy wget
+RUN apt-get update && apt-get install -qqy wget gnupg gnupg2 apt-utils sudo
 
 RUN wget http://download.opensuse.org/repositories/openSUSE:Tools/xUbuntu_18.04/Release.key \
     && apt-key add - < Release.key
@@ -18,7 +18,6 @@ RUN apt-get update && apt-get install -qqy \
                       git \
                       gnupg-agent \
                       osc \
-                      sudo \
                       nano && \
 		      apt-get autoremove --yes --purge && \
                       apt-get clean && \
